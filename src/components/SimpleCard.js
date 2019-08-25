@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 const AWS = require('aws-sdk');
@@ -63,19 +64,30 @@ const SimpleCard = () => {
         }, 3000);
 
     }
+
+    
+    
   
     return (
         <Card className={classes.card}>
         <CardContent>
+        <CardMedia
+          className={classes.media}
+          style = {{ height: 0, paddingTop: '56%'}}
+          image= {require ("../assets/img/logo.png")}
+          />
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            This dog is a
+            This doggo is a
           </Typography>
           <Typography variant="h5" component="h2">
           {results.breed}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            <p>{results.confidence}</p>
+          <Typography className={classes.title} color="textSecondary" gutterBottom>
+            Predicted with <b>{results.confidence}</b> confidence!
           </Typography>
+          {/* <Typography variant="h5" component="h2">
+          {results.confidence}
+          </Typography> */}
         </CardContent>
       </Card>
     );
