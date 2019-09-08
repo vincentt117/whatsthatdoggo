@@ -39,7 +39,7 @@ function App() {
     {
           process: function(fieldName, image, metadata, load, error, progress, abort) {
             s3.upload({
-                Bucket: 'doggos-ml-doggos-uploadedimages',
+                Bucket: 'doggos-input',
                 Key: Date.now() + '_' +  image.name,
                 Body: image,
                 ContentType: image.type,
